@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        body {
+            line-height: 1;
+            color: #333;
+        }
+
+        header {
+            width: 100%;
+            height: 70px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #ffffffb6;
+            backdrop-filter: blur(10px);
+        }
+
+        header .inner {
+            width: calc(100% - 40px);
+            height: 100%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .inner img {
+            height: 40px;
+        }
+
+        header .inner nav {
+            position: absolute;
+            right: 0;
+            top: 70px;
+            width: 200px;
+            background-color: #fff;
+        }
+
+        header .inner nav ul li {
+            padding: 20px;
+        }
+
+        .main_visual {
+            height: 100vh;
+        }
+
+        .main_visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .cont01 {
+            width: calc(100% - 50px);
+            margin: 100px auto;
+        }
+
+        .cont01 .tab_menu {
+            margin-bottom: 40px;
+        }
+
+        .cont01 .tab_menu li {
+            display: inline-block; 
+            /* border: 1px solid #333; */
+             
+            padding: 10px;
+        }
+
+        .cont01 div {
+            width: 100%;
+            height: 350px;
+        }
+
+        .cont01 div img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <div class="inner">
+            <h1>
+                <a href="#">
+                    <img src="img/icons8-envira-32.png" alt="스케치아이콘" />
+                </a>
+            </h1>
+            <nav id="gnb">
+                <ul>
+                    <li><a href="#">새로나온책</a></li>
+                    <li><a href="#">베스트셀러</a></li>
+                    <li><a href="#">어린이도서</a></li>
+                    <li><a href="#">수험정보센터</a></li>
+                    <li><a href="#">연재컬럼</a></li>
+                    <li><a href="#">영광문화</a></li>
+                </ul>
+            </nav>
+            <div>
+                <img id="menu_icon" src="img/icons8-menu-60.png" alt="메뉴보기" />
+            </div>
+        </div><!-- .inner end -->
+    </header>
+    <main>
+        <section class="main_visual">
+            <img src="img/paper02.jpg" alt="" />
+        </section><!-- main_visual end -->
+
+        <section class="cont01">
+            <ul class="tab_menu">
+                <li>베스트셀러</li>
+                <li>기획테마</li>
+                <li>분야별시간</li>
+            </ul><!-- .tab_menu end -->
+            <div>
+
+                <img src="img/paper01.jpg" alt="" />
+
+            </div>
+        </section><!-- .cont01 end -->
+    </main>
+
+    <script>
+        let menuIcon = document.getElementById('menu_icon');
+        let headerNav = document.getElementById('gnb');
+        headerNav.style.display = 'none'
+        menuIcon.onclick = function () {
+            if (headerNav.style.display == 'none') {
+                headerNav.style.display = 'block'
+            } else {
+                headerNav.style.display = 'none'
+            }
+        }
+
+
+        let cont01 = document.getElementsByClassName('cont01')[0];
+
+        let cont01Menu = cont01.getElementsByTagName('li'); 
+        let cont01Img = cont01.getElementsByTagName('img')[0]; 
+        cont01Menu[0].style.borderBottom = '1px solid #333';
+
+
+        for (i = 0; i < cont01Menu.length; i++) {
+            //cont01Menu[i].style.borderBottom = '1px solid #fff';
+            //console.log(cont01Menu[i]) 
+            //document.write(i)
+            let num = i + 1; //i = 0
+            let imgChange = 'img/paper' + 0 + num + '.jpg';
+            console.log(imgChange)
+            //document.write(imgChange + '<br>')
+            //console.log(cont01Menu[i])
+            cont01Menu[i].onclick = function () {
+                //console.log(cont01Menu[i] ) 
+                cont01Img.src = imgChange;
+                //console.log('img/paper' + 0 + i + '.jpg')
+                //contImg.src = 'img/paper' + 0 + i + '.jpg'; 
+
+                if (this.style.borderBottom = '1px solid #fff') {
+
+                    cont01Menu[0].style.borderBottom = '1px solid #fff';
+                    cont01Menu[1].style.borderBottom = '1px solid #fff';
+                    cont01Menu[2].style.borderBottom = '1px solid #fff';
+
+                    this.style.borderBottom = '1px solid #333';
+                }
+
+            }
+
+
+
+
+        }
+    </script>
+</body>
+
+</html>
